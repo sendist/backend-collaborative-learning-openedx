@@ -67,24 +67,24 @@ router.get('/', async (req, res) => {
                 {
                     catatanbelajar_tag: {
                         some: {
-                          tag: {
-                            id: {
-                              in: tagIds
+                            tag: {
+                                id: {
+                                    in: tagIds
+                                }
                             }
-                          }
                         }
-                      }
+                    }
                 }
             ]
         },
         include: {
             catatanbelajar_tag: {
-                    include: {
-                        tag: {
-                            select: { nama_tag: true } // Hanya memilih nama_tag
-                        }
+                include: {
+                    tag: {
+                        select: { nama_tag: true } // Hanya memilih nama_tag
                     }
                 }
+            }
         },
     });
 

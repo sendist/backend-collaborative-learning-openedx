@@ -12,9 +12,9 @@ const app: Express = express();
 const port = 3030;
 
 app.use(cors())
-app.use(bodyParser.json());
-app.use(bodyParser.text());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.text({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOutput, {
